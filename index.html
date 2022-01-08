@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+
+<!--MODAL AGREGAR VENTA-->
+<div class="container-modal">
+  <div class="header-modal">
+    <h3>Agregar Venta</h3>
+  </div>
+  <div class="main-modal">
+
+    <label for="">Vendedora</label>
+    <select name="vendedoras" id="">
+      <option value="Ada">Ada</option>
+      <option value="Grace">Grace</option>
+      <option value="Hedy">Hedy</option>
+      <option value="Sheryl">Sheryl</option>
+    </select>
+
+    <label for="">Componentes</label>
+    <select name="componentes" id="">
+      <option value="Ada">Monitor GPRS 3000</option>
+      <option value="Grace">Motherboard ASUS 1500</option>
+      <option value="Hedy">Monitor ASC 543</option>
+      <option value="Sheryl">Motherboard ASUS 1200</option>
+      <option value="Sheryl">Motherboard MZI</option>
+      <option value="Sheryl">HDD Toyiva</option>
+      <option value="Sheryl">HDD Wezter Dishital</option>
+      <option value="Sheryl">RAM Quinston</option>
+      <option value="Sheryl">RAM Quinston Fury</option>
+    </select>
+
+
+    <label for="">Sucursal</label>
+    <select name="sucursal" id="">
+      <option value="Ada">Caballito</option>
+      <option value="Grace">Centro</option>
+    </select>
+
+    <label for="">Fecha</label>
+    <input type="date" id="start" name="trip-start">
+
+  </div>
+  <div class="footer-modal">
+    <button class="btn-cancelar">Cancelar</button>
+    <button class="btn-guardar"> Guardar</button>
+  </div>
+</div>
+
+
+      <div class="container">
+
+        <div class="card card--50">
+          <div class="card__title"><h2>Ventas por sucursal</h2></div>
+          <div class="card__body">
+            <table>
+              <tr>
+                <th>Sucursal</th>
+                <th>Total Ventas</th>
+              </tr>
+              <tr>
+                <td>Centro</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Caballito</td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="card card--50">
+          <div class="card__title"><h2>Reportes</h2></div>
+          <div class="card__body">
+            <p>Productos estrellas: <span> </span></p>
+            <p>Vendedoras que mas ingreso genero: <span> </span></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="card">
+
+          <div class="card__title">
+            <h2>Ventas</h2>
+            <button class="btn" type="button">Nueva Ventas</button>
+          </div>
+          
+          <div class="card__body">
+            <table>
+              <tr>
+                <th>Fecha</th>
+                <th>Vendedora</th>
+                <th>Sucursal</th>
+                <th>Componentes</th>
+                <th>Precio</th>
+                <th>Accion</th>
+              </tr>
+              <tr>
+                <td>04/02/2019</td>
+                <td>Grace</td>
+                <td>Centro</td>
+                <td>Monitor GPRS 300</td>
+                <td>900</td>
+                <td>editar - eliminar</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+
+    </main>
+    <script src="logica.js"></script>
+    <script src="dom.js"></script>
+  </body>
+</html>
