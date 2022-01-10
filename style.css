@@ -51,6 +51,9 @@ main{
   color: var(--main-color);
   padding:0 20px;
 }
+i{
+  padding: 10px;
+}
 
 table{
   text-align: left;
@@ -120,4 +123,7 @@ select{
 
 .footer-modal{
   background-color: #1B4965;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
 }
