@@ -48,11 +48,11 @@
 
           <div class="card__title">
             <h2>Ventas</h2>
-            <button class="btn" type="button" id="nuevaVenta">Nueva Ventas</button>
+            <button class="btn" type="button" id="nuevaVenta">Nueva Venta</button>
           </div>
           
           <div class="card__body">
-            <table>
+            <table class="Tabla-ventas">
               <tr>
                 <th>Fecha</th>
                 <th>Vendedora</th>
@@ -68,7 +68,7 @@
                 <td>Monitor GPRS 300</td>
                 <td>900</td>
                 <td>
-                  <i class="fas fa-pencil-alt"></i>
+                  <i class="fas fa-pencil-alt editar"></i>
                   <i class="fas fa-trash-alt"></i>
                 </td>
               </tr>
@@ -118,13 +118,63 @@
 
         </div>
         <div class="footer-modal">
-          <button class="btn-cancelar" type="button" id="cancelarNuevaVenta"> Cancelar </button>
-          <button class="btn-guardar" type="button"> Guardar</button>
+          <button class="btn-cancelar btn" type="button" id="cancelarNuevaVenta"> Cancelar </button>
+          <button class="btn-guardar btn" type="button"> Guardar</button>
         </div>
 
       </div>
       
     </div>
+
+      <!--MODAL EDITAR VENTA-->
+      <div class="modal-none" id="modal-editar">
+
+        <div class="container-modal">
+          <div class="header-modal">
+            <h3>Editar Venta</h3>
+          </div>
+          <div class="main-modal">
+  
+            <label for="">Vendedora</label>
+            <select name="vendedoras" id="">
+              <option value="Ada">Ada</option>
+              <option value="Grace">Grace</option>
+              <option value="Hedy">Hedy</option>
+              <option value="Sheryl">Sheryl</option>
+            </select>
+  
+            <label for="">Componentes</label>
+            <select name="componentes" id="">
+              <option value="Ada">Monitor GPRS 3000</option>
+              <option value="Grace">Motherboard ASUS 1500</option>
+              <option value="Hedy">Monitor ASC 543</option>
+              <option value="Sheryl">Motherboard ASUS 1200</option>
+              <option value="Sheryl">Motherboard MZI</option>
+              <option value="Sheryl">HDD Toyiva</option>
+              <option value="Sheryl">HDD Wezter Dishital</option>
+              <option value="Sheryl">RAM Quinston</option>
+              <option value="Sheryl">RAM Quinston Fury</option>
+            </select>
+  
+  
+            <label for="">Sucursal</label>
+            <select name="sucursal" id="">
+              <option value="Ada">Caballito</option>
+              <option value="Grace">Centro</option>
+            </select>
+  
+            <label for="">Fecha</label>
+            <input type="date" id="start" name="trip-start">
+  
+          </div>
+          <div class="footer-modal">
+            <button class="btn-cancelar btn" type="button" id="cancelar-edicion"> Cancelar </button>
+            <button class="btn-guardar btn" type="button"> Guardar</button>
+          </div>
+  
+        </div>
+        
+      </div>
 
 
     </main>

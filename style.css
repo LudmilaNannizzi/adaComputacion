@@ -100,7 +100,7 @@ select{
 }
 */
 
-#modal-none{
+#modal-none, #modal-editar{
   display: flex;
   background-color: rgba(0, 0, 0, 0.521);
   align-items: center;
@@ -127,3 +127,5 @@ select{
   justify-content: flex-end;
   padding: 10px 20px;
 }
+
+

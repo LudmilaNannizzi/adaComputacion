@@ -7,15 +7,29 @@ const btnCancelar = document.getElementById('cancelarNuevaVenta')
 
 
 
+
+
 nuevaVenta.addEventListener('click', ()=>{
-    modalNuevaVenta.classList.add('mostrar')
-    modalNuevaVenta.classList.remove('modal-none')
-// modalNuevaVenta.classList.toggle('modal-none')
+    //modalNuevaVenta.classList.add('mostrar')
+    //modalNuevaVenta.classList.remove('modal-none')
+    modalNuevaVenta.classList.toggle('modal-none')
 })  
 
 btnCancelar.addEventListener('click', ()=>{
-    modalNuevaVenta.classList.remove('mostrar')
-    modalNuevaVenta.classList.add('modal-none')
- // modalNuevaVenta.classList.toggle('modal-none')
+    //modalNuevaVenta.classList.remove('mostrar')
+    //modalNuevaVenta.classList.add('modal-none')
+    modalNuevaVenta.classList.toggle('modal-none')
 })
 
+// ABRIR MODAL EDITAR
+
+const editarVenta = document.querySelector('.editar')
+const btnCancelEdicion = document.querySelector('#cancelar-edicion')
+const modalEditarVenta = document.querySelector('#modal-editar')
+
+editarVenta.addEventListener('click',()=>{
+    modalEditarVenta.classList.toggle('modal-none')
+})
+btnCancelEdicion.addEventListener('click', ()=>{
+    modalEditarVenta.classList.toggle('modal-none')
+})
