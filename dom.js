@@ -1,7 +1,7 @@
 // ABRIR MODAL NUEVA VENTA
 
 const nuevaVenta = document.getElementById('nuevaVenta')
-const modalNuevaVenta = document.getElementById('modal-madre')
+const modalNuevaVenta = document.getElementById('modal-none')
 const btnCancelar = document.getElementById('cancelarNuevaVenta')
 
 
@@ -9,12 +9,12 @@ const btnCancelar = document.getElementById('cancelarNuevaVenta')
 
 nuevaVenta.addEventListener('click', ()=>{
     modalNuevaVenta.classList.add('mostrar')
-    modalNuevaVenta.classList.remove('modal-madre')
+    modalNuevaVenta.classList.remove('modal-none')
 
 })
 
 btnCancelar.addEventListener('click', ()=>{
     modalNuevaVenta.classList.remove('mostrar')
-    modalNuevaVenta.classList.add('modal-madre')
+    modalNuevaVenta.classList.add('modal-none')
 })
 
