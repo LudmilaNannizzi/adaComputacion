@@ -10,52 +10,6 @@
   <body>
     <main>
 
-<!--MODAL AGREGAR VENTA-->
-<div class="container-modal">
-  <div class="header-modal">
-    <h3>Agregar Venta</h3>
-  </div>
-  <div class="main-modal">
-
-    <label for="">Vendedora</label>
-    <select name="vendedoras" id="">
-      <option value="Ada">Ada</option>
-      <option value="Grace">Grace</option>
-      <option value="Hedy">Hedy</option>
-      <option value="Sheryl">Sheryl</option>
-    </select>
-
-    <label for="">Componentes</label>
-    <select name="componentes" id="">
-      <option value="Ada">Monitor GPRS 3000</option>
-      <option value="Grace">Motherboard ASUS 1500</option>
-      <option value="Hedy">Monitor ASC 543</option>
-      <option value="Sheryl">Motherboard ASUS 1200</option>
-      <option value="Sheryl">Motherboard MZI</option>
-      <option value="Sheryl">HDD Toyiva</option>
-      <option value="Sheryl">HDD Wezter Dishital</option>
-      <option value="Sheryl">RAM Quinston</option>
-      <option value="Sheryl">RAM Quinston Fury</option>
-    </select>
-
-
-    <label for="">Sucursal</label>
-    <select name="sucursal" id="">
-      <option value="Ada">Caballito</option>
-      <option value="Grace">Centro</option>
-    </select>
-
-    <label for="">Fecha</label>
-    <input type="date" id="start" name="trip-start">
-
-  </div>
-  <div class="footer-modal">
-    <button class="btn-cancelar">Cancelar</button>
-    <button class="btn-guardar"> Guardar</button>
-  </div>
-</div>
-
-
       <div class="container">
 
         <div class="card card--50">
@@ -93,7 +47,7 @@
 
           <div class="card__title">
             <h2>Ventas</h2>
-            <button class="btn" type="button">Nueva Ventas</button>
+            <button class="btn" type="button" id="nuevaVenta">Nueva Ventas</button>
           </div>
           
           <div class="card__body">
@@ -118,7 +72,55 @@
           </div>
         </div>
       </div>
+      <!--MODAL AGREGAR VENTA-->
+    <div class="modal-madre" id="modal-madre">
+
+      <div class="container-modal">
+        <div class="header-modal">
+          <h3>Agregar Venta</h3>
+        </div>
+        <div class="main-modal">
+
+          <label for="">Vendedora</label>
+          <select name="vendedoras" id="">
+            <option value="Ada">Ada</option>
+            <option value="Grace">Grace</option>
+            <option value="Hedy">Hedy</option>
+            <option value="Sheryl">Sheryl</option>
+          </select>
+
+          <label for="">Componentes</label>
+          <select name="componentes" id="">
+            <option value="Ada">Monitor GPRS 3000</option>
+            <option value="Grace">Motherboard ASUS 1500</option>
+            <option value="Hedy">Monitor ASC 543</option>
+            <option value="Sheryl">Motherboard ASUS 1200</option>
+            <option value="Sheryl">Motherboard MZI</option>
+            <option value="Sheryl">HDD Toyiva</option>
+            <option value="Sheryl">HDD Wezter Dishital</option>
+            <option value="Sheryl">RAM Quinston</option>
+            <option value="Sheryl">RAM Quinston Fury</option>
+          </select>
+
+
+          <label for="">Sucursal</label>
+          <select name="sucursal" id="">
+            <option value="Ada">Caballito</option>
+            <option value="Grace">Centro</option>
+          </select>
+
+          <label for="">Fecha</label>
+          <input type="date" id="start" name="trip-start">
+
+        </div>
+        <div class="footer-modal">
+          <button class="btn-cancelar" type="button" id="cancelarNuevaVenta"> Cancelar </button>
+          <button class="btn-guardar"> Guardar</button>
+        </div>
+      </div>
       
+    </div>
+
 
     </main>
     <script src="logica.js"></script>
