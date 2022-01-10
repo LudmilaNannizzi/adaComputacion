@@ -33,3 +33,18 @@ editarVenta.addEventListener('click',()=>{
 btnCancelEdicion.addEventListener('click', ()=>{
     modalEditarVenta.classList.toggle('modal-none')
 })
+
+
+// MODAL ELIMINAR VENTA
+
+const eliminarVenta = document.querySelector('.eliminar')
+const btnCancelVenta = document.querySelector('#cancelar-venta')
+const modalEliminarVenta = document.querySelector('#modal-eliminar')
+
+eliminarVenta.addEventListener('click',()=>{
+    modalEliminarVenta.classList.toggle('modal-none')
+})
+
+btnCancelVenta.addEventListener('click',()=>{
+    modalEliminarVenta.classList.toggle('modal-none')
+})
