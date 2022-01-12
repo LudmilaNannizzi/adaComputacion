@@ -16,17 +16,13 @@
         <div class="card card--50">
           <div class="card__title"><h2>Ventas por sucursal</h2></div>
           <div class="card__body">
-            <table>
+            <table id="tdSucursal">
               <tr>
                 <th>Sucursal</th>
                 <th>Total Ventas</th>
               </tr>
-              <tr>
-                <td>Centro</td>
+              <tr >
                 <td></td>
-              </tr>
-              <tr>
-                <td>Caballito</td>
                 <td></td>
               </tr>
             </table>
@@ -36,8 +32,8 @@
         <div class="card card--50">
           <div class="card__title"><h2>Reportes</h2></div>
           <div class="card__body">
-            <p>Productos estrellas: <span> </span></p>
-            <p>Vendedoras que mas ingreso genero: <span> </span></p>
+            <p>Productos estrellas: <span id="productoEstrella"> </span></p>
+            <p>Vendedoras que mas ingreso genero: <span id="vendedoraEstrella"> </span></p>
           </div>
         </div>
 
@@ -52,7 +48,7 @@
           </div>
           
           <div class="card__body">
-            <table class="Tabla-ventas">
+            <table id='tablaVentas' class="tabla-ventas">
               <tr>
                 <th>Fecha</th>
                 <th>Vendedora</th>
@@ -86,7 +82,7 @@
         <div class="main-modal">
 
           <label for="">Vendedora</label>
-          <select name="vendedoras" id="">
+          <select name="vendedoras" id="agregarVendedora">
             <option value="Ada">Ada</option>
             <option value="Grace">Grace</option>
             <option value="Hedy">Hedy</option>
@@ -94,32 +90,32 @@
           </select>
 
           <label for="">Componentes</label>
-          <select name="componentes" id="">
-            <option value="Ada">Monitor GPRS 3000</option>
-            <option value="Grace">Motherboard ASUS 1500</option>
-            <option value="Hedy">Monitor ASC 543</option>
-            <option value="Sheryl">Motherboard ASUS 1200</option>
-            <option value="Sheryl">Motherboard MZI</option>
-            <option value="Sheryl">HDD Toyiva</option>
-            <option value="Sheryl">HDD Wezter Dishital</option>
-            <option value="Sheryl">RAM Quinston</option>
-            <option value="Sheryl">RAM Quinston Fury</option>
+          <select name="componentes" id="agregarComponente" multiple>
+            <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
+            <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
+            <option value="Monitor ASC 543">Monitor ASC 543</option>
+            <option value="Motherboard ASUS 1200">Motherboard ASUS 1200</option>
+            <option value="Motherboard MZI">Motherboard MZI</option>
+            <option value="HDD Toyiva">HDD Toyiva</option>
+            <option value="HDD Wezter Dishital">HDD Wezter Dishital</option>
+            <option value="RAM Quinston">RAM Quinston</option>
+            <option value="RAM Quinston Fury">RAM Quinston Fury</option>
           </select>
 
 
           <label for="">Sucursal</label>
-          <select name="sucursal" id="">
-            <option value="Ada">Caballito</option>
-            <option value="Grace">Centro</option>
+          <select name="sucursal" id="agregarSucursal">
+            <option value="Caballito">Caballito</option>
+            <option value="Centro">Centro</option>
           </select>
 
           <label for="">Fecha</label>
-          <input type="date" id="start" name="trip-start">
+          <input type="date" id="agregarFecha" name="trip-start">
 
         </div>
         <div class="footer-modal">
           <button class="btn-cancelar btn" type="button" id="cancelarNuevaVenta"> Cancelar </button>
-          <button class="btn-guardar btn" type="button"> Guardar</button>
+          <button class="btn-guardar btn" type="button" id="guardarNuevaVenta"> Guardar</button>
         </div>
 
       </div>

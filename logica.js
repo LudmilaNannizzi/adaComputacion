@@ -218,3 +218,31 @@ const precioComponente = (articulo) => {
   
   }
 
+  /*
+    const componenteMasVendido = ()=>{
+        let acc = 0
+        let articulosMV = ''
+      
+        for (const articulo of articulos) {
+          if (acc < cantidadVentasComponente(articulo.item)) {
+            acc =  cantidadVentasComponente(articulo.item)
+            articulosMV = articulo.item
+          }
+        }
+        return articulosMV
+      }
+ 
+*/
+    const vendedoraQueMasVendio  = () =>{
+      let acc = 0
+      let vendedoraMV = ''
+
+      for (const vendedora of vendedoras) {
+        if (acc < ventasVendedora(vendedora)) {
+            acc = ventasVendedora(vendedora)
+            vendedoraMV = vendedora
+        }
+      }
+      return vendedoraMV
+    } 
+    console.log(vendedoraQueMasVendio());

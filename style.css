@@ -1,5 +1,5 @@
 :root {
-  --main-color:#1B4965;
+  --main-color:#02305a;
   --background-color:#FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -12,15 +12,26 @@
 }
 
 body {
-  background-color: #F2F2F2;
+  background-color: #e7e7dd;
 }
 
 main{
   margin: 100px auto 0;
-  max-width: 900px;
+  max-width: 80%;
 
 }
 
+button{
+  background-color: #008a93;
+  color: #e7e7dd;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0 7px ;
+  border: none;
+}
+button:hover{
+  background-color: #04b7c4
+}
 .container{
   width: 100%;
   display: flex;
@@ -32,6 +43,7 @@ main{
   display: inline-block;
   width: 100%;
   margin-bottom: 36px;
+  border-radius: 15px;
 }
 
 .card.card--50{
@@ -42,7 +54,7 @@ main{
   color: var(--background-color);
   background-color: var(--main-color);
   padding: 10px 20px;
-
+  border-radius: 15px 15px 0 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -50,9 +62,16 @@ main{
 .card .card__body{
   color: var(--main-color);
   padding:0 20px;
+  
 }
 i{
   padding: 10px;
+}
+.fa-trash-alt{
+  color: #ff3860;
+}
+.fa-pencil-alt{
+  color: #23d160;
 }
 
 table{
@@ -61,7 +80,7 @@ table{
 }
 
 .container-modal{
-  width: 30%;
+  width: 25%;
   margin: 0 auto;
   border: 1px solid black;
 }
@@ -73,7 +92,7 @@ table{
 }
 
 .header-modal{
-  background-color: #1B4965;
+  background-color: #02305a;
   color: white;
 }
 h3{
@@ -122,7 +141,7 @@ select{
 }
 
 .footer-modal{
-  background-color: #1B4965;
+  background-color: #02305a;
   display: flex;
   justify-content: flex-end;
   padding: 10px 20px;
