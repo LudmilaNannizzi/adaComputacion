@@ -2,7 +2,7 @@
 
 const vendedoras = ['Ada', 'Grace', 'Hedy', 'Sheryl'];
 
-const ventas = [
+let ventas = [
   // tener en cuenta que Date guarda los meses del 0 (enero) al 11 (diciembre)
   {
     id: 1,
@@ -245,4 +245,4 @@ const precioComponente = (articulo) => {
       }
       return vendedoraMV
     } 
-    console.log(vendedoraQueMasVendio());
+   
