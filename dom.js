@@ -11,6 +11,7 @@ const btnCancelVenta = document.querySelector("#cancelar-venta");
 const modalEliminarVenta = document.querySelector("#modal-eliminar");
 
 const $ = (id) => document.getElementById(id);
+//const $ = (element)=> document.querySelector(element)
 
 nuevaVenta.addEventListener("click", () => {
   modalNuevaVenta.classList.toggle("modal-none");
@@ -22,31 +23,101 @@ btnCancelar.addEventListener("click", () => {
 
 
 // ABRIR MODAL EDITAR
-const openEditModal =()=>{
-    modalEditarVenta.classList.toggle("modal-none");
+
+const findId = (id)=> ventas.find(venta => venta.id == id)
+const findIndexId = (id)=> ventas.findIndex(venta => venta.id == id)
+
+const ventaEditada =(venta)=>{
+  
+  $('nombreVendedoraEdit').value = venta.nombreVendedora
+  $('sucursalEdit').value = venta.sucursal
+  $('idEdit').value = venta.id
+
+  const day = ("0" + venta.fecha.getDate()).slice(-2)
+  const month = ("0" + (venta.fecha.getMonth() + 1)).slice(-2);
+  
+  $('fechaEdit').value = `${venta.fecha.getFullYear()}-${month}-${day}`
+ 
+ for (const optionDom of $('componentesEdit').options) {
+   if(venta.componentes.findIndex(componente => componente == optionDom.value)!= -1){
+      optionDom.selected = true
+   }
+ } 
+  }
+
+
+  const guardarEditModal =(e)=>{
+   
+
+    const nombreVendedora = $('nombreVendedoraEdit').value
+    const componentes = getValuesOptions($('componentesEdit'));
+    const sucursal = $('sucursalEdit').value
+    const fecha =  $('fechaEdit').value
+    const id = $('idEdit').value
+
+    const indice = findIndexId(id)
+
+
+    const ventasaEditar = {
+      nombreVendedora,
+      componentes,
+      sucursal,
+      fecha,
+    }
+
+    ventas[indice] = ventasaEditar
+    
+      //ventasPorVendedora[venta.nombreVendedora] = precioMaquina(venta.componentes)
+
+    modalEditarVenta.classList.add("modal-none");
+    updateDom() 
+
+  }
+  
+$('guardarEdit').addEventListener('click', guardarEditModal)
+
+
+
+
+const openEditModal =(element)=>{
+  modalEditarVenta.classList.toggle("modal-none"); 
+ const venta = findId(element.dataset.id);
+ ventaEditada(venta)
 }
 
-const openDeleteModal=()=>{
+
+
+
+const openDeleteModal=(element)=>{
     modalEliminarVenta.classList.toggle("modal-none");
+    $('idEliminar').value = element.dataset.id
 }
-/*editarVenta.addEventListener("click", () => {
-  modalEditarVenta.classList.toggle("modal-none");
-});
+
 btnCancelEdicion.addEventListener("click", () => {
   modalEditarVenta.classList.toggle("modal-none");
 
 
-});*/
+});
 
 // MODAL ELIMINAR VENTA
-/* 
-eliminarVenta.addEventListener("click", () => {
-  modalEliminarVenta.classList.toggle("modal-none");
-});
 
 btnCancelVenta.addEventListener("click", () => {
   modalEliminarVenta.classList.toggle("modal-none");
-});*/
+});
+const eliminarVentaSeleccionada =(id)=>{
+  ventas = ventas.filter(venta => venta.id != id)
+ }
+
+$('eliminar-venta').addEventListener("click", () => {
+  modalEliminarVenta.classList.toggle("modal-none");
+
+  const id = $('idEliminar').value
+
+  eliminarVentaSeleccionada(id)
+  updateDom() 
+
+});
+
 
 
 
@@ -54,16 +125,12 @@ btnCancelVenta.addEventListener("click", () => {
 
 
 // CREAR VENTA
-const getDataid = (e) => {
-  console.log(e.dataset.id);
-};
-
-const filtrarId =(ventas, id)=>{
- ventas.filter(([venta]) => venta.id !== id)
-   
 
 
-}
+
+
+
+
 
 
 const renderTabla = () => {
@@ -88,14 +155,21 @@ const renderTabla = () => {
        
     `
     );
-  }, "");
+  }, `<tr>
+  <th>Fecha</th>
+  <th>Vendedora</th>
+  <th>Sucursal</th>
+  <th>Componentes</th>
+  <th>Precio</th>
+  <th>Acciones</th>
+</tr>`);
 
   const tablaVenta = document.querySelector("#tablaVentas");
 
-  tablaVenta.innerHTML += ventasTable;
+  tablaVenta.innerHTML = ventasTable;
 };
 
-renderTabla();
+
 
 //VENTAS X SUCURSAL
 const renderSucursales = () => {

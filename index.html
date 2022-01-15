@@ -124,7 +124,7 @@
           <div class="main-modal">
   
             <label for="">Vendedora</label>
-            <select name="vendedoras" id="">
+            <select name="vendedoras" id="nombreVendedoraEdit">
               <option value="Ada">Ada</option>
               <option value="Grace">Grace</option>
               <option value="Hedy">Hedy</option>
@@ -132,7 +132,7 @@
             </select>
   
             <label for="">Componentes</label>
-            <select name="componentes" id="">
+            <select name="componentes" id="componentesEdit" multiple>
               <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
               <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
               <option value="Monitor ASC 543">Monitor ASC 543</option>
@@ -146,18 +146,19 @@
   
   
             <label for="">Sucursal</label>
-            <select name="sucursal" id="">
-              <option value="Ada">Caballito</option>
-              <option value="Grace">Centro</option>
+            <select name="sucursal" id="sucursalEdit">
+              <option value="Caballito">Caballito</option>
+              <option value="Centro">Centro</option>
             </select>
   
             <label for="">Fecha</label>
-            <input type="date" id="start" name="trip-start">
+            <input type="date" id="fechaEdit" name="trip-start">
+            <input type="hidden" id="idEdit">
   
           </div>
           <div class="footer-modal">
             <button class="btn-cancelar btn" type="button" id="cancelar-edicion"> Cancelar </button>
-            <button class="btn-guardar btn" type="button"> Guardar</button>
+            <button class="btn-guardar btn" type="button" id= "guardarEdit"> Guardar</button>
           </div>
   
         </div>
@@ -172,10 +173,12 @@
         <div class="main-modal">
           <p class="card__title">¿Estás segura?</p>
           <p>Esta acción no se puede revertir.</p>
+          <input type="hidden" id="idEliminar">
+  
         </div>
         <div class="footer-modal">
           <button class="btn-cancelar btn" id="cancelar-venta">Cancelar</button>
-          <button class="btn-eliminar btn">Eliminar</button>
+          <button class="btn-eliminar btn" id="eliminar-venta">Eliminar</button>
         </div>
       </div>
 
