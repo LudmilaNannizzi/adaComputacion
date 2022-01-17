@@ -1,6 +1,6 @@
 # Ada computación
 
-_En este proyecto desarrollamos un sistema para llevar registro de ventas. Consiste en un sistema de alta, baja y modificaciones con datos precargados, además se muestra estadísticas como ser Vendedora que más ingresos generó, productos estrella, etc._
+_En este proyecto desarrollamos un sistema para llevar registro de ventas. Consiste en un sistema de alta, baja y modificaciones con datos precargados, además se muestra estadísticas como ser: Vendedora que más ingresos generó, productos estrella, etc._
 
 Para comenzar has click en https://github.com/LudmilaNannizzi/adaComputacion.git
 ## Autores ✒️
