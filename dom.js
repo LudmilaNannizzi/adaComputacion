@@ -42,7 +42,7 @@ const ventaEditada =(venta)=>{
    if(venta.componentes.findIndex(componente => componente == optionDom.value)!= -1){
       optionDom.selected = true
    }
- } 
+ }
   }
 
 
@@ -52,7 +52,7 @@ const ventaEditada =(venta)=>{
     const nombreVendedora = $('nombreVendedoraEdit').value
     const componentes = getValuesOptions($('componentesEdit'));
     const sucursal = $('sucursalEdit').value
-    const fecha =  $('fechaEdit').value
+    const fecha = new Date($('fechaEdit').value) 
     const id = $('idEdit').value
 
     const indice = findIndexId(id)
@@ -63,6 +63,7 @@ const ventaEditada =(venta)=>{
       componentes,
       sucursal,
       fecha,
+      id
     }
 
     ventas[indice] = ventasaEditar
@@ -104,6 +105,8 @@ btnCancelEdicion.addEventListener("click", () => {
 btnCancelVenta.addEventListener("click", () => {
   modalEliminarVenta.classList.toggle("modal-none");
 });
+
+
 const eliminarVentaSeleccionada =(id)=>{
   ventas = ventas.filter(venta => venta.id != id)
  }
@@ -138,7 +141,8 @@ const renderTabla = () => {
     return (
       acc +
       ` <tr>
-            <td>${venta.fecha.toLocaleString("es-AR", {
+            <td>${venta.fecha.toLocaleDateString
+              ("es-AR", {
               timeZone: "UTC",
             })}     </td>
             <td>${venta.nombreVendedora}</td>
