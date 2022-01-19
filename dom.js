@@ -11,7 +11,9 @@ const btnCancelVenta = document.querySelector("#cancelar-venta");
 const modalEliminarVenta = document.querySelector("#modal-eliminar");
 
 const $ = (id) => document.getElementById(id);
-//const $ = (element)=> document.querySelector(element)
+
+
+//--------------------------------------------Abrir modal nueva venta ------------------------- 
 
 nuevaVenta.addEventListener("click", () => {
   modalNuevaVenta.classList.toggle("modal-none");
@@ -22,12 +24,15 @@ btnCancelar.addEventListener("click", () => {
 });
 
 
-// ABRIR MODAL EDITAR
+//------------------------------------------Auxiliares filtros id---------------------------------------------
 
-const findId = (id)=> ventas.find(venta => venta.id == id)
-const findIndexId = (id)=> ventas.findIndex(venta => venta.id == id)
+const buscarId = (id)=> ventas.find(venta => venta.id == id)
+const buscarIndiceId = (id)=> ventas.findIndex(venta => venta.id == id)
 
-const ventaEditada =(venta)=>{
+
+//-----------------------------------------Modal editar venta ------------------------------------------------
+
+const edicionVenta =(venta)=>{
   
   $('nombreVendedoraEdit').value = venta.nombreVendedora
   $('sucursalEdit').value = venta.sucursal
@@ -46,16 +51,16 @@ const ventaEditada =(venta)=>{
   }
 
 
-  const guardarEditModal =(e)=>{
+  const guardarModalEditar =(e)=>{
    
 
     const nombreVendedora = $('nombreVendedoraEdit').value
-    const componentes = getValuesOptions($('componentesEdit'));
+    const componentes = obtenerValuesOptions($('componentesEdit'));
     const sucursal = $('sucursalEdit').value
     const fecha = new Date($('fechaEdit').value) 
     const id = $('idEdit').value
 
-    const indice = findIndexId(id)
+    const indice = buscarIndiceId(id)
 
 
     const ventasaEditar = {
@@ -71,36 +76,64 @@ const ventaEditada =(venta)=>{
       //ventasPorVendedora[venta.nombreVendedora] = precioMaquina(venta.componentes)
 
     modalEditarVenta.classList.add("modal-none");
-    updateDom() 
+   actualizarDom() 
 
   }
   
-$('guardarEdit').addEventListener('click', guardarEditModal)
+
+  $('guardarEdit').addEventListener('click', guardarModalEditar)
 
 
 
 
-const openEditModal =(element)=>{
+const abrirModalEditar =(element)=>{
   modalEditarVenta.classList.toggle("modal-none"); 
- const venta = findId(element.dataset.id);
- ventaEditada(venta)
+ const venta = buscarId(element.dataset.id);
+ edicionVenta(venta)
 }
 
+//-----------------------------------------------Guardar nueva venta -----------------------------------------
+const obtenerValuesOptions = (optionDom) => {
+  const aux = [];
+  for (const option of optionDom.options) {
+    if (option.selected) {
+      aux.push(option.value);
+    }
+  }
+  return aux;
+};
 
+$("guardarNuevaVenta").addEventListener("click", () => {
+  const nombreVendedora = $("agregarVendedora").value;
+  const componentes = obtenerValuesOptions($("agregarComponente"));
+  const sucursal = $("agregarSucursal").value;
+  const fecha = new Date($("agregarFecha").value);
+  const id = Math.floor(Math.random() * 10000) + 10;
 
+  const ventasAGuardar = {
+    id,
+    nombreVendedora,
+    componentes,
+    sucursal,
+    fecha,
+  };
 
-const openDeleteModal=(element)=>{
+  ventas.push(ventasAGuardar);
+ actualizarDom();
+  modalNuevaVenta.classList.add("modal-none");
+});
+
+//------------------------------------------------Modal eliminar venta----------------------------------------
+
+const abrirModalEliminar=(element)=>{
     modalEliminarVenta.classList.toggle("modal-none");
     $('idEliminar').value = element.dataset.id
 }
 
 btnCancelEdicion.addEventListener("click", () => {
   modalEditarVenta.classList.toggle("modal-none");
-
-
 });
 
-// MODAL ELIMINAR VENTA
 
 btnCancelVenta.addEventListener("click", () => {
   modalEliminarVenta.classList.toggle("modal-none");
@@ -117,27 +150,14 @@ $('eliminar-venta').addEventListener("click", () => {
   const id = $('idEliminar').value
 
   eliminarVentaSeleccionada(id)
-  updateDom() 
+ actualizarDom() 
 
 });
 
-
-
-
-
-
-
-// CREAR VENTA
-
-
-
-
-
-
-
+//-------------------------------------------------------Renderizar tabla-------------------------------------
 
 const renderTabla = () => {
-  const ventasTable = ventas.reduce((acc, venta) => {
+  const ventasTabla = ventas.reduce((acc, venta) => {
     return (
       acc +
       ` <tr>
@@ -151,9 +171,9 @@ const renderTabla = () => {
             <td>${precioMaquina(venta.componentes)}</td>
             <td>
                 <i class="fas fa-pencil-alt editar" data-id="${
-                    venta.id}" onclick="openEditModal(this)"></i>
+                    venta.id}" onclick="abrirModalEditar(this)"></i>
                 <i class="fas fa-trash-alt eliminar" data-id="${
-                    venta.id}" onclick="openDeleteModal(this)"></i>
+                    venta.id}" onclick="abrirModalEliminar(this)"></i>
             </td>
         </tr>
        
@@ -170,12 +190,10 @@ const renderTabla = () => {
 
   const tablaVenta = document.querySelector("#tablaVentas");
 
-  tablaVenta.innerHTML = ventasTable;
+  tablaVenta.innerHTML = ventasTabla;
 };
 
-
-
-//VENTAS X SUCURSAL
+//------------------------------------------------- Renderizar sucursales-------------------------------------
 const renderSucursales = () => {
   const ventasXsucursalDom = sucursales.reduce((acc, sucursal) => {
     return (
@@ -194,47 +212,15 @@ const renderSucursales = () => {
   tablaVentasXsucursal.innerHTML = ventasXsucursalDom;
 };
 
-const updateDom = () => {
+//------------------------------------------------- Actualizar el DOM ----------------------------------------
+const actualizarDom = () => {
   $("productoEstrella").innerHTML = componenteMasVendido();
   $("vendedoraEstrella").innerHTML = vendedoraQueMasVendio();
   renderTabla();
   renderSucursales();
 };
-updateDom();
+actualizarDom();
 
-//PRODUCTO ESTRELLA
 
-// VENDEDORA ESTRELLA
 
-//AGREGAR VENTA
 
-$("guardarNuevaVenta").addEventListener("click", () => {
-  const nombreVendedora = $("agregarVendedora").value;
-  const componentes = getValuesOptions($("agregarComponente"));
-  const sucursal = $("agregarSucursal").value;
-  const fecha = new Date($("agregarFecha").value);
-  const id = Math.floor(Math.random() * 10000) + 10;
-
-  const ventasaGuardar = {
-    id,
-    nombreVendedora,
-    componentes,
-    sucursal,
-    fecha,
-  };
-
-  ventas.push(ventasaGuardar);
-  console.log(ventasaGuardar);
-  updateDom();
-  modalNuevaVenta.classList.add("modal-none");
-});
-
-const getValuesOptions = (optionDom) => {
-  const aux = [];
-  for (const option of optionDom.options) {
-    if (option.selected) {
-      aux.push(option.value);
-    }
-  }
-  return aux;
-};
