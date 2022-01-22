@@ -169,13 +169,14 @@ select{
 
   .container{
     flex-direction: column;
-  }
-  .card {
-  
     overflow:scroll;
     border-collapse: collapse;
-    /*cursor:pointer;*/
   }
+ /*.card {
+  
+   
+    /*cursor:pointer;
+  }*/
   .container-modal{
     width: 55%;
    
