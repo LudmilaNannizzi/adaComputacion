@@ -2,8 +2,8 @@
   --main-color:#02305a;
   --background-color:#FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
+  
 }
-
 
 * {
   box-sizing: border-box;
@@ -18,7 +18,6 @@ body {
 main{
   margin: 100px auto 0;
   max-width: 80%;
-
 }
 
 button{
@@ -36,6 +35,7 @@ button:hover{
   width: 100%;
   display: flex;
   justify-content: space-between;
+  border: #ff3860 solid 3px;
 }
 
 .card{
@@ -44,10 +44,12 @@ button:hover{
   width: 100%;
   margin-bottom: 36px;
   border-radius: 15px;
+  border: yellow solid 3px;
+ 
 }
 
 .card.card--50{
-  width: 48%;
+  margin: 5% 2%;
 }
 
 .card .card__title{
@@ -58,10 +60,12 @@ button:hover{
   display: flex;
   justify-content: space-between;
   width: 100%;
+  border: red solid 3px;
 }
 .card .card__body{
   color: var(--main-color);
-  padding:0 20px;
+  padding:10px 20px;
+  margin-top: 8px;
   
 }
 i{
@@ -75,8 +79,9 @@ i{
 }
 
 table{
-  text-align: left;
+  text-align: center;
   width: 100%;
+  border:violet solid 3px
 }
 
 .container-modal{
@@ -147,4 +152,33 @@ select{
   padding: 10px 20px;
 }
 
+@media (max-width: 800px){
+  main{
+    margin: auto;
+    max-width: 90%;
+  }
+  i{
+    padding: 5px;
+  }
+  th, td, p {
+    font-size:small;
+  }
+ 
+}
+@media (max-width: 400px){
 
+  .container{
+    flex-direction: column;
+  }
+  .card {
+  
+    overflow:scroll;
+    border-collapse: collapse;
+    /*cursor:pointer;*/
+  }
+  .container-modal{
+    width: 55%;
+   
+  }
+   
+}
