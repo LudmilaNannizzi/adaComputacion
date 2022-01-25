@@ -153,6 +153,12 @@ $('eliminar-venta').addEventListener("click", () => {
  actualizarDom() 
 
 });
+ //------------------------------------------------- Responsive tabla ----------------------------------------
+ if (window.matchMedia("(max-width: 400px)").matches) {
+  /* La pantalla tiene al menos 400 píxeles de ancho */
+} else {
+  /* La pantalla tiene menos de 400 píxeles de ancho */
+}
 
 //-------------------------------------------------------Renderizar tabla-------------------------------------
 
@@ -179,6 +185,7 @@ const renderTabla = () => {
        
     `
     );
+
   }, `<tr>
   <th>Fecha</th>
   <th>Vendedora</th>
@@ -187,7 +194,6 @@ const renderTabla = () => {
   <th>Precio</th>
   <th>Acciones</th>
 </tr>`);
-
   const tablaVenta = document.querySelector("#tablaVentas");
 
   tablaVenta.innerHTML = ventasTabla;
