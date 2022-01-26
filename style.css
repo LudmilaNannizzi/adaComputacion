@@ -80,10 +80,14 @@ table{
   text-align: center;
   width: 100%;
 }
- td{
+
+
+ td:not(#tdSucursal td){
   border-bottom: rgba(128, 128, 128, 0.397) 1px solid ;
   margin-top: 1px;
 }
+
+
 
 .container-modal{
   width: 25%;
