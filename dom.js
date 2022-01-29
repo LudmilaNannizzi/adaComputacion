@@ -1,5 +1,7 @@
 // Variables
-
+const btnFiltrosModal = document.getElementById("filtroVentas");
+const btnFiltrosCancelar = document.getElementById("cancelar-filtro");
+const filtrosModal = document.getElementById("modal-filtro");
 const nuevaVenta = document.getElementById("nuevaVenta");
 const modalNuevaVenta = document.getElementById("modal-none");
 const btnCancelar = document.getElementById("cancelarNuevaVenta");
@@ -22,12 +24,22 @@ nuevaVenta.addEventListener("click", () => {
 btnCancelar.addEventListener("click", () => {
   modalNuevaVenta.classList.toggle("modal-none");
 });
+//--------------------------------------------Abrir modal filtro------------------------- 
+
+btnFiltrosModal.addEventListener("click", () => {
+  filtrosModal.classList.toggle("modal-none");
+});
+
+btnFiltrosCancelar.addEventListener("click", () => {
+  filtrosModal.classList.toggle("modal-none");
+});
+
 
 
 //------------------------------------------Auxiliares filtros id---------------------------------------------
 
-const buscarId = (id)=> ventas.find(venta => venta.id == id)
-const buscarIndiceId = (id)=> ventas.findIndex(venta => venta.id == id)
+const buscarId = (id)=> getVentas().find(venta => venta.id == id)
+const buscarIndiceId = (id)=> getVentas().findIndex(venta => venta.id == id)
 
 
 //-----------------------------------------Modal editar venta ------------------------------------------------
@@ -70,9 +82,10 @@ const edicionVenta =(venta)=>{
       fecha,
       id
     }
-
+   
+    const ventas = getVentas()
     ventas[indice] = ventasaEditar
-    
+    setVentas(ventas)
       //ventasPorVendedora[venta.nombreVendedora] = precioMaquina(venta.componentes)
 
     modalEditarVenta.classList.add("modal-none");
@@ -117,9 +130,11 @@ $("guardarNuevaVenta").addEventListener("click", () => {
     sucursal,
     fecha,
   };
+  const ventas = getVentas() 
 
   ventas.push(ventasAGuardar);
- actualizarDom();
+  setVentas(ventas)
+  actualizarDom();
   modalNuevaVenta.classList.add("modal-none");
 });
 
@@ -141,7 +156,8 @@ btnCancelVenta.addEventListener("click", () => {
 
 
 const eliminarVentaSeleccionada =(id)=>{
-  ventas = ventas.filter(venta => venta.id != id)
+ const ventas = getVentas().filter(venta => venta.id != id)
+  setVentas(ventas)
  }
 
 $('eliminar-venta').addEventListener("click", () => {
@@ -150,24 +166,19 @@ $('eliminar-venta').addEventListener("click", () => {
   const id = $('idEliminar').value
 
   eliminarVentaSeleccionada(id)
- actualizarDom() 
+  actualizarDom() 
 
 });
- //------------------------------------------------- Responsive tabla ----------------------------------------
- if (window.matchMedia("(max-width: 400px)").matches) {
-  /* La pantalla tiene al menos 400 píxeles de ancho */
-} else {
-  /* La pantalla tiene menos de 400 píxeles de ancho */
-}
 
 //-------------------------------------------------------Renderizar tabla-------------------------------------
 
 const renderTabla = () => {
-  const ventasTabla = ventas.reduce((acc, venta) => {
+  const ventasTabla = getVentas().reduce((acc, venta) => {
+    console.log(venta);
     return (
       acc +
       ` <tr>
-            <td>${venta.fecha.toLocaleDateString
+            <td>${ new Date(venta.fecha).toLocaleDateString
               ("es-AR", {
               timeZone: "UTC",
             })}     </td>
@@ -216,6 +227,9 @@ const renderSucursales = () => {
   const tablaVentasXsucursal = document.querySelector("#tdSucursal");
 
   tablaVentasXsucursal.innerHTML = ventasXsucursalDom;
+
+
+  
 };
 
 //------------------------------------------------- Actualizar el DOM ----------------------------------------
@@ -224,9 +238,10 @@ const actualizarDom = () => {
   $("vendedoraEstrella").innerHTML = vendedoraQueMasVendio();
   renderTabla();
   renderSucursales();
+  
 };
 actualizarDom();
 
 
-
+//------------------------------------------------------
 

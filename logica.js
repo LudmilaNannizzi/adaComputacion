@@ -2,7 +2,7 @@
 
 const vendedoras = ['Ada', 'Grace', 'Hedy', 'Sheryl'];
 
-let ventas = [
+let ventas= [
   // tener en cuenta que Date guarda los meses del 0 (enero) al 11 (diciembre)
   {
     id: 1,
@@ -60,6 +60,17 @@ const articulos = [
 
 const sucursales = ['Centro', 'Caballito'];
 
+// STORAGE
+const setVentas = (ventas)=>{
+  localStorage.setItem('ventas', JSON.stringify(ventas))
+}
+
+const getVentas = () =>{
+  return JSON.parse(localStorage.getItem('ventas')) || ventas
+
+}
+
+
 
 // FUNCIONES PARA REUTILIZAR
 
@@ -89,7 +100,7 @@ const precioComponente = (articulo) => {
 
   const ventasPorFecha = (mes, anio)=>{
     const  ventasFiltradas = []
-    for (const venta of ventas) {
+    for (const venta of getVentas()) {
       if ((mes - 1) == venta.fecha.getMonth() && anio == venta.fecha.getFullYear()) {
         ventasFiltradas.push(venta)
       }
@@ -102,7 +113,7 @@ const precioComponente = (articulo) => {
 
   cantidadVentasComponente = (componente) => {
     let contador = 0;
-    for (const venta of ventas) {
+    for (const venta of getVentas()) {
       for (const componenteVendido of venta.componentes) {
         if (componenteVendido == componente) {
           contador++;
@@ -154,11 +165,11 @@ const precioComponente = (articulo) => {
 
 
   const ventasVendedora = (nombre) =>{
-    let filtroVendedora = ventas.filter(venta => venta.nombreVendedora == nombre)
+    let filtroVendedora = getVentas().filter(venta => venta.nombreVendedora == nombre)
     return totalVentas(filtroVendedora)
   }
 
-
+/*
   const componenteMasVendido = ()=>{
     let acc = 0
     let articulosMV = ''
@@ -171,6 +182,9 @@ const precioComponente = (articulo) => {
     }
     return articulosMV
   }
+  
+*/
+
 
   const huboVentas = (mes, anio) =>{
     return ventasPorFecha(mes, anio).length >= 1
@@ -179,7 +193,7 @@ const precioComponente = (articulo) => {
 
   
   const ventasSucursal = (sucursalPar) =>{
-    let filtroSucursal = ventas.filter(venta =>venta.sucursal == sucursalPar)
+    let filtroSucursal = getVentas().filter(venta =>venta.sucursal == sucursalPar)
 
     return totalVentas(filtroSucursal)
   }
@@ -218,7 +232,7 @@ const precioComponente = (articulo) => {
   
   }
 
-  /*
+  
     const componenteMasVendido = ()=>{
         let acc = 0
         let articulosMV = ''
@@ -232,7 +246,8 @@ const precioComponente = (articulo) => {
         return articulosMV
       }
  
-*/
+
+
     const vendedoraQueMasVendio  = () =>{
       let acc = 0
       let vendedoraMV = ''
@@ -246,3 +261,4 @@ const precioComponente = (articulo) => {
       return vendedoraMV
     } 
    
+

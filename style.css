@@ -23,7 +23,7 @@ button{
   background-color: #3e5c76;
   color: #e7e7dd;
   border-radius: 5px;
-  padding: 5px;
+  padding: 3px 7px 3px 3px;
   margin: 0 7px ;
   border: none;
 }
@@ -115,7 +115,7 @@ select{
   margin-top: 5px;
 }
 
-#modal-none, #modal-editar, #modal-eliminar{
+#modal-none, #modal-editar, #modal-eliminar, #modal-filtro{
   display: flex;
   background-color: rgba(0, 0, 0, 0.521);
   align-items: center;

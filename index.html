@@ -1,70 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ada Computacion</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
 
-      <div class="container">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ada Computacion</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <div class="card card--50">
-          <div class="card__title"><h2>Ventas por sucursal</h2></div>
-          <div class="card__body">
-            <table id="tdSucursal">
-              <tr>
-                <th>Sucursal</th>
-                <th>Total Ventas</th>
-              </tr>
-              <tr >
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
+<body>
+  <main>
+
+    <div class="container">
+
+      <div class="card card--50">
+        <div class="card__title">
+          <h2>Ventas por sucursal</h2>
         </div>
-
-        <div class="card card--50">
-          <div class="card__title"><h2>Reportes</h2></div>
-          <div class="card__body">
-            <p>Productos estrellas: <span id="productoEstrella"> </span></p>
-            <p>Vendedoras que mas ingreso genero: <span id="vendedoraEstrella"> </span></p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="container">
-        <div class="card">
-
-          <div class="card__title">
-            <h2>Ventas</h2>
-            <button class="btn" type="button" id="nuevaVenta">Nueva Venta</button>
-          </div>
-          
-          <div class="card__body" id="card-ventas">
-            <table id='tablaVentas' class="tabla-ventas">
-              <tr>
-                <th>Fecha</th>
-                <th>Vendedora</th>
-                <th>Sucursal</th>
-                <th>Componentes</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-              </tr>
-              <tr>
-             
-              </tr>
-            </table>
-          </div>
+        <div class="card__body">
+          <table id="tdSucursal">
+            <tr>
+              <th>Sucursal</th>
+              <th>Total Ventas</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
         </div>
       </div>
-      <!--MODAL AGREGAR VENTA-->
+
+      <div class="card card--50">
+        <div class="card__title">
+          <h2>Reportes</h2>
+        </div>
+        <div class="card__body">
+          <p>Productos estrellas: <span id="productoEstrella"> </span></p>
+          <p>Vendedoras que mas ingreso genero: <span id="vendedoraEstrella"> </span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="card">
+
+        <div class="card__title">
+          <h2>Ventas</h2>
+          <div class="botones-tabla">
+              <button class="btn" type="button" id="filtroVentas"><i class="fas fa-filter"></i>Filtro  </button>
+              <button class="btn" type="button" id="nuevaVenta"><i class="fas fa-plus-circle"></i>Nueva Venta  </button>
+          </div>
+        </div>
+
+        <div class="card__body" id="card-ventas">
+          <table id='tablaVentas' class="tabla-ventas">
+            <tr>
+              <th>Fecha</th>
+              <th>Vendedora</th>
+              <th>Sucursal</th>
+              <th>Componentes</th>
+              <th>Precio</th>
+              <th>Acciones</th>
+            </tr>
+            <tr>
+
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--MODAL AGREGAR VENTA-->
     <div class="modal-none" id="modal-none">
 
       <div class="container-modal">
@@ -111,60 +121,60 @@
         </div>
 
       </div>
-      
+
     </div>
 
-      <!--MODAL EDITAR VENTA-->
-      <div class="modal-none" id="modal-editar">
+    <!--MODAL EDITAR VENTA-->
+    <div class="modal-none" id="modal-editar">
 
-        <div class="container-modal">
-          <div class="header-modal">
-            <h3>Editar Venta</h3>
-          </div>
-          <div class="main-modal">
-  
-            <label for="">Vendedora</label>
-            <select name="vendedoras" id="nombreVendedoraEdit">
-              <option value="Ada">Ada</option>
-              <option value="Grace">Grace</option>
-              <option value="Hedy">Hedy</option>
-              <option value="Sheryl">Sheryl</option>
-            </select>
-  
-            <label for="">Componentes</label>
-            <select name="componentes" id="componentesEdit" multiple>
-              <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
-              <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
-              <option value="Monitor ASC 543">Monitor ASC 543</option>
-              <option value="Motherboard ASUS 1200">Motherboard ASUS 1200</option>
-              <option value="Motherboard MZI">Motherboard MZI</option>
-              <option value="HDD Toyiva">HDD Toyiva</option>
-              <option value="HDD Wezter Dishital">HDD Wezter Dishital</option>
-              <option value="RAM Quinston">RAM Quinston</option>
-              <option value="RAM Quinston Fury">RAM Quinston Fury</option>
-            </select>
-  
-  
-            <label for="">Sucursal</label>
-            <select name="sucursal" id="sucursalEdit">
-              <option value="Caballito">Caballito</option>
-              <option value="Centro">Centro</option>
-            </select>
-  
-            <label for="">Fecha</label>
-            <input type="date" id="fechaEdit" name="trip-start">
-            <input type="hidden" id="idEdit">
-  
-          </div>
-          <div class="footer-modal">
-            <button class="btn-cancelar btn" type="button" id="cancelar-edicion"> Cancelar </button>
-            <button class="btn-guardar btn" type="button" id= "guardarEdit"> Guardar</button>
-          </div>
-  
+      <div class="container-modal">
+        <div class="header-modal">
+          <h3>Editar Venta</h3>
         </div>
-        
+        <div class="main-modal">
+
+          <label for="">Vendedora</label>
+          <select name="vendedoras" id="nombreVendedoraEdit">
+            <option value="Ada">Ada</option>
+            <option value="Grace">Grace</option>
+            <option value="Hedy">Hedy</option>
+            <option value="Sheryl">Sheryl</option>
+          </select>
+
+          <label for="">Componentes</label>
+          <select name="componentes" id="componentesEdit" multiple>
+            <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
+            <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
+            <option value="Monitor ASC 543">Monitor ASC 543</option>
+            <option value="Motherboard ASUS 1200">Motherboard ASUS 1200</option>
+            <option value="Motherboard MZI">Motherboard MZI</option>
+            <option value="HDD Toyiva">HDD Toyiva</option>
+            <option value="HDD Wezter Dishital">HDD Wezter Dishital</option>
+            <option value="RAM Quinston">RAM Quinston</option>
+            <option value="RAM Quinston Fury">RAM Quinston Fury</option>
+          </select>
+
+
+          <label for="">Sucursal</label>
+          <select name="sucursal" id="sucursalEdit">
+            <option value="Caballito">Caballito</option>
+            <option value="Centro">Centro</option>
+          </select>
+
+          <label for="">Fecha</label>
+          <input type="date" id="fechaEdit" name="trip-start">
+          <input type="hidden" id="idEdit">
+
+        </div>
+        <div class="footer-modal">
+          <button class="btn-cancelar btn" type="button" id="cancelar-edicion"> Cancelar </button>
+          <button class="btn-guardar btn" type="button" id="guardarEdit"> Guardar</button>
+        </div>
+
       </div>
-      <!--MODAL ELIMINAR VENTA-->
+
+    </div>
+    <!--MODAL ELIMINAR VENTA-->
     <div id="modal-eliminar" class="modal-none">
       <div class="container-modal">
         <div class="header-modal ">
@@ -174,17 +184,63 @@
           <p class="card__title">¿Estás segura?</p>
           <p>Esta acción no se puede revertir.</p>
           <input type="hidden" id="idEliminar">
-  
+
         </div>
         <div class="footer-modal">
           <button class="btn-cancelar btn" id="cancelar-venta">Cancelar</button>
           <button class="btn-eliminar btn" id="eliminar-venta">Eliminar</button>
         </div>
       </div>
+    </div>
+    <!--MODAL DE FILTROS-->
+
+    <div id="modal-filtro" class="modal-none">
+      <div class="container-modal">
+        <div class="header-modal ">
+          <h3>Filtros</h3>
+        </div>
+        <div class="main-modal">
+          <label for="">Vendedora</label>
+          <select name="vendedoras" id="agregarVendedora">
+            <option value="Ada">Ada</option>
+            <option value="Grace">Grace</option>
+            <option value="Hedy">Hedy</option>
+            <option value="Sheryl">Sheryl</option>
+          </select>
+
+          <label for="">Componentes</label>
+          <select name="componentes" id="agregarComponente">
+            <option value="Monitor GPRS 3000">Monitor GPRS 3000</option>
+            <option value="Motherboard ASUS 1500">Motherboard ASUS 1500</option>
+            <option value="Monitor ASC 543">Monitor ASC 543</option>
+            <option value="Motherboard ASUS 1200">Motherboard ASUS 1200</option>
+            <option value="Motherboard MZI">Motherboard MZI</option>
+            <option value="HDD Toyiva">HDD Toyiva</option>
+            <option value="HDD Wezter Dishital">HDD Wezter Dishital</option>
+            <option value="RAM Quinston">RAM Quinston</option>
+            <option value="RAM Quinston Fury">RAM Quinston Fury</option>
+          </select>
 
 
-    </main>
-    <script src="logica.js"></script>
-    <script src="dom.js"></script>
-  </body>
+          <label for="">Sucursal</label>
+          <select name="sucursal" id="agregarSucursal">
+            <option value="Caballito">Caballito</option>
+            <option value="Centro">Centro</option>
+          </select>
+
+          <label for="">Fecha</label>
+          <input type="date" id="agregarFecha" name="trip-start">
+
+        </div>
+        <div class="footer-modal">
+          <button class="btn" id="aplicar-filtro">Filtrar</button>
+          <button class="btn" id="cancelar-filtro">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="logica.js"></script>
+  <script src="dom.js"></script>
+</body>
+
 </html>
