@@ -2,6 +2,7 @@
 const btnFiltrosModal = document.getElementById("filtroVentas");
 const btnFiltrosCancelar = document.getElementById("cancelar-filtro");
 const filtrosModal = document.getElementById("modal-filtro");
+const aplicarFiltro = document.getElementById('aplicar-filtro')
 const nuevaVenta = document.getElementById("nuevaVenta");
 const modalNuevaVenta = document.getElementById("modal-none");
 const btnCancelar = document.getElementById("cancelarNuevaVenta");
@@ -172,8 +173,11 @@ $('eliminar-venta').addEventListener("click", () => {
 
 //-------------------------------------------------------Renderizar tabla-------------------------------------
 
-const renderTabla = () => {
-  const ventasTabla = getVentas().reduce((acc, venta) => {
+const renderTabla = (ventas) => {
+  ventas = ventas || getVentas()
+
+
+  const ventasTabla = ventas.reduce((acc, venta) => {
     console.log(venta);
     return (
       acc +
@@ -209,6 +213,10 @@ const renderTabla = () => {
 
   tablaVenta.innerHTML = ventasTabla;
 };
+//-----------------------------------------------Filtros -----------------------------------------
+
+aplicarFiltro.addEventListener('click', renderTabla)
+
 
 //------------------------------------------------- Renderizar sucursales-------------------------------------
 const renderSucursales = () => {

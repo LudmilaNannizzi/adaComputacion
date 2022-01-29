@@ -90,7 +90,7 @@ const precioComponente = (articulo) => {
     return total;
   };
   
-  const totalVentas= ( ventasFiltradas ) =>{
+  const totalVentas = ( ventasFiltradas ) =>{
     let contador = 0
     for (const venta of ventasFiltradas) {
       contador += precioMaquina(venta.componentes)
@@ -260,5 +260,42 @@ const precioComponente = (articulo) => {
       }
       return vendedoraMV
     } 
+
+    const filtroPorVendedora = (vendedora, ventas)=>{
+      return ventas.filter(venta => venta.nombreVendedora == vendedora)
+    }
+    console.log(filtroPorVendedora('Ada', getVentas()));
+
+
+    const filtroPorComponente = (componenteFiltrado, ventas) =>{
+        return ventas.filter(venta =>venta.componentes.includes(componenteFiltrado))
+    }
    
+
+
+    const filtroPorSucursal = (sucursal, ventas)=>{
+          return ventas.filter(venta => venta.sucursal == sucursal)
+    }
+
+
+    
+  const filtroPorFecha = (mes, anio, ventas)=>{
+    return ventas.filter(venta => {
+      const fecha = new Date ( venta.fecha)
+      return (fecha.getMonth()+1 == mes && fecha.getFullYear()==anio)
+    })
+  }
+
+
+
+    let filtro1 = (filtroPorVendedora('Ada', getVentas()))
+    let filtro2 = (filtroPorComponente('Monitor GPRS 3000', filtro1))
+    let filtro3 = (filtroPorSucursal('Centro', filtro2))
+    let filtro4 = (filtroPorFecha(1, 2022, getVentas()), filtro3)
+
+
+    console.log(filtro1);
+    console.log(filtro2);
+    console.log(filtro3);
+    console.log(filtro4);
 
