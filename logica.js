@@ -261,6 +261,10 @@ const precioComponente = (articulo) => {
       return vendedoraMV
     } 
 
+
+
+
+
     const filtroPorVendedora = (vendedora, ventas)=>{
       return ventas.filter(venta => venta.nombreVendedora == vendedora)
     }
@@ -294,8 +298,8 @@ const precioComponente = (articulo) => {
     let filtro4 = (filtroPorFecha(1, 2022, getVentas()), filtro3)
 
 
-    console.log(filtro1);
+    /*console.log(filtro1);
     console.log(filtro2);
     console.log(filtro3);
     console.log(filtro4);
-
+*/

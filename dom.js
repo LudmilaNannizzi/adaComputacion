@@ -87,7 +87,7 @@ const edicionVenta =(venta)=>{
     const ventas = getVentas()
     ventas[indice] = ventasaEditar
     setVentas(ventas)
-      //ventasPorVendedora[venta.nombreVendedora] = precioMaquina(venta.componentes)
+  
 
     modalEditarVenta.classList.add("modal-none");
    actualizarDom() 
@@ -253,3 +253,40 @@ actualizarDom();
 
 //------------------------------------------------------
 
+ const guardarModalFiltro = () => {
+  const nombreVendedora = $("filtroVendedora").value;
+  const componentes = $("filtroComponente").value;
+  const sucursal = $("filtroSucursal").value;
+  const fecha = new Date($("filtroFecha").value);
+
+
+    let filtroVendedora = (filtroPorVendedora(nombreVendedora, getVentas()))
+    let filtroComponente= (filtroPorComponente(componentes, filtroVendedora))
+    let filtroSucursal = (filtroPorSucursal(sucursal, filtro2))
+    let filtroFecha = (filtroPorFecha(fecha, filtroSucursal))
+
+    console.log(filtroVendedora);
+    console.log(filtroComponente);
+    console.log(filtroSucursal);
+    console.log(filtroFecha);
+
+    const ventasaFiltrar = {
+      nombreVendedora,
+      componentes,
+      sucursal,
+      fecha,
+      id
+    }
+   
+    const ventas = getVentas()
+    ventas = filtroFecha
+    setVentas(ventas)
+  
+
+    $("modal-filtro").classList.add("modal-none");
+    actualizarDom() 
+
+  }
+  
+
+  $('aplicar-filtro').addEventListener('click', guardarModalFiltro)
