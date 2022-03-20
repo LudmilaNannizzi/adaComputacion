@@ -4,7 +4,7 @@ _En este proyecto desarrollamos un sistema para llevar registro de ventas. Consi
 
 Para comenzar has click en https://ludmilanannizzi.github.io/adaComputacion/
 
-## Este repositorio es mantenida por: 
+## Este repositorio es mantenido por: 
 * **Sol Lereah** - [Solereah]( https://github.com/Solereah)
 * **Ana Manera** - [ana-manera](https://github.com/ana-manera)
 * **Ludmila Nannizzi** - [LudmilaNannizzi]( https://github.com/LudmilaNannizzi)
